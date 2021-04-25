@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" InitialTargets="ValidateSolutionConfiguration;ValidateToolsVersions;ValidateProjects">
+  <Target Name="Build" />
+  <Target Name="Publish" />
+  <Target Name="Rebuild" />
+  <Target Name="Clean" />
+  <Target Name="Restore" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportBefore\*" Condition="'$(ImportByWildcardBeforeSolution)' != 'false' and exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportBefore')" />
+  <PropertyGroup Condition="'$(ImportDirectorySolutionProps)' != 'false' and '$(DirectorySolutionPropsPath)' == ''">
+    <_DirectorySolutionPropsFile Condition="'$(_DirectorySolutionPropsFile)' == ''">Directory.Solution.props</_DirectorySolutionPropsFile>
+    <_DirectorySolutionPropsBasePath Condition="'$(_DirectorySolutionPropsBasePath)' == ''">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), '$(_DirectorySolutionPropsFile)'))</_DirectorySolutionPropsBasePath>
+    <DirectorySolutionPropsPath Condition="'$(_DirectorySolutionPropsBasePath)' != '' and '$(_DirectorySolutionPropsFile)' != ''">$([System.IO.Path]::Combine('$(_DirectorySolutionPropsBasePath)', '$(_DirectorySolutionPropsFile)'))</DirectorySolutionPropsPath>
+  </PropertyGroup>
+  <Import Project="$(DirectorySolutionPropsPath)" Condition="'$(ImportDirectorySolutionProps)' != 'false' and exists('$(DirectorySolutionPropsPath)')" />
+  <Import Project="C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\before.EchoBot.sln.targets" Condition="exists('C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\before.EchoBot.sln.targets')" />
+  <PropertyGroup Condition=" '$(Configuration)' == '' ">
+    <Configuration>Debug</Configuration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == '' ">
+    <Platform>Any CPU</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(AspNetConfiguration)' == '') ">
+    <AspNetConfiguration>$(Configuration)</AspNetConfiguration>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SolutionDir>C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\</SolutionDir>
+    <SolutionExt>.sln</SolutionExt>
+    <SolutionFileName>EchoBot.sln</SolutionFileName>
+    <SolutionName>EchoBot</SolutionName>
+    <SolutionPath>C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\EchoBot.sln</SolutionPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and '$(MSBuildToolsVersion)' == '2.0'">v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and ('$(MSBuildToolsVersion)' == '3.5' or '$(MSBuildToolsVersion)' == '3.0')">v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="'$(TargetFrameworkVersion)' == '' and !('$(MSBuildToolsVersion)' == '3.5' or '$(MSBuildToolsVersion)' == '3.0' or '$(MSBuildToolsVersion)' == '2.0')">v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" ('$(Configuration)' == 'Debug') and ('$(Platform)' == 'Any CPU') ">
+    <CurrentSolutionConfigurationContents>
+      <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{B18CD866-7E29-498F-88EA-C3B48C96CA7C}" AbsolutePath="C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\EchoBot.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+    </CurrentSolutionConfigurationContents>
+  </PropertyGroup>
+  <ItemGroup>
+    <SolutionConfiguration Include="Debug|Any CPU">
+      <Configuration>Debug</Configuration>
+      <Platform>Any CPU</Platform>
+      <Content>
+        <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{B18CD866-7E29-498F-88EA-C3B48C96CA7C}" AbsolutePath="C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\EchoBot.csproj" BuildProjectInSolution="True">Debug|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+      </Content>
+    </SolutionConfiguration>
+    <SolutionConfiguration Include="Release|Any CPU">
+      <Configuration>Release</Configuration>
+      <Platform>Any CPU</Platform>
+      <Content>
+        <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{B18CD866-7E29-498F-88EA-C3B48C96CA7C}" AbsolutePath="C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\EchoBot.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+      </Content>
+    </SolutionConfiguration>
+  </ItemGroup>
+  <PropertyGroup Condition=" ('$(Configuration)' == 'Release') and ('$(Platform)' == 'Any CPU') ">
+    <CurrentSolutionConfigurationContents>
+      <SolutionConfiguration xmlns="">
+  <ProjectConfiguration Project="{B18CD866-7E29-498F-88EA-C3B48C96CA7C}" AbsolutePath="C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\EchoBot.csproj" BuildProjectInSolution="True">Release|AnyCPU</ProjectConfiguration>
+</SolutionConfiguration>
+    </CurrentSolutionConfigurationContents>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportAfter\*" Condition="'$(ImportByWildcardBeforeSolution)' != 'false' and exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\SolutionFile\ImportAfter')" />
+  <PropertyGroup Condition="'$(ImportDirectorySolutionTargets)' != 'false' and '$(DirectorySolutionTargetsPath)' == ''">
+    <_DirectorySolutionTargetsFile Condition="'$(_DirectorySolutionTargetsFile)' == ''">Directory.Solution.targets</_DirectorySolutionTargetsFile>
+    <_DirectorySolutionTargetsBasePath Condition="'$(_DirectorySolutionTargetsBasePath)' == ''">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildProjectDirectory), '$(_DirectorySolutionTargetsFile)'))</_DirectorySolutionTargetsBasePath>
+    <DirectorySolutionTargetsPath Condition="'$(_DirectorySolutionTargetsBasePath)' != '' and '$(_DirectorySolutionTargetsFile)' != ''">$([System.IO.Path]::Combine('$(_DirectorySolutionTargetsBasePath)', '$(_DirectorySolutionTargetsFile)'))</DirectorySolutionTargetsPath>
+  </PropertyGroup>
+  <Import Project="$(DirectorySolutionTargetsPath)" Condition="'$(ImportDirectorySolutionTargets)' != 'false' and exists('$(DirectorySolutionTargetsPath)')" />
+  <Import Project="C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\after.EchoBot.sln.targets" Condition="exists('C:\source\BotAppTemplates\CSharp-ABS-WebApp-V4\EchoBot\after.EchoBot.sln.targets')" />
+</Project>
