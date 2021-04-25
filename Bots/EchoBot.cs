@@ -13,14 +13,6 @@ using Microsoft.Extensions.Configuration;
 
 namespace Microsoft.BotBuilderSamples.Bots
 {
-    public enum ConvoState
-    {
-        Start,
-        ExpectFirstName,
-        ExpectLastName,
-        ExpectAge,
-        Done
-    }
 
     // Timers cannot be persisted (serialized). Therefore, keep timer IDs only in the conversation state
     // Timers themselves are stored in a per-instance dictionary and are ephemeral
